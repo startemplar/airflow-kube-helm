@@ -57,7 +57,7 @@ airflow:
       # storageClass: default
       ##
       ## Existing claim to use
-      existingClaim:
+      existingClaim: nfs-airflow-logs
       existingClaimSubPath:
       ##
       ## Persistant storage size request

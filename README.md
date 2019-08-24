@@ -23,6 +23,7 @@ If you're installing Docker on Ubuntu, then follow the
 [post-installation steps](https://docs.docker.com/install/linux/linux-postinstall/)
 to be able to run Docker without sudo.
 
+Due to [this limitation](https://github.com/kubernetes/kubernetes/issues/77986), the container has to run under root user.
 
 ## Deploy
 

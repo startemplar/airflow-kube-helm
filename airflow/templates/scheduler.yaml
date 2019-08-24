@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "airflow.fullname" . }}-scheduler
@@ -9,7 +9,10 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: 1
-  serviceAccountName: {{ template "airflow.fullname" . }}-cluster-access
+  selector:
+    matchLabels:
+      app: {{ template "airflow.name" . }}-scheduler
+      release: {{ .Release.Name}}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -27,6 +30,7 @@ spec:
       securityContext:
         fsGroup: 1000
       restartPolicy: Always
+      serviceAccountName: {{ template "airflow.fullname" . }}-cluster-access
       containers:
       {{- if not .Values.airflow.dags.persistence.enabled }}
       - name: git-sync

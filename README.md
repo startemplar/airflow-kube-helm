@@ -64,6 +64,9 @@ An NFS volume allows ReadWriteMany access to the volumes, which is sufficient to
   * dags-volume-readwritemany: Similar to Minikube example, but uses NFS volume for both logs and dags.
   
 
+## Run
+helm install --name airflow --namespace airflow ./airflow -f config.yaml
+
 ## Additional reading
 
 The Docker image is based on the great work of [puckel/docker-airflow](https://github.com/puckel/docker-airflow).

@@ -1,0 +1,13 @@
+airflow:
+  fernet_key: <replace your own>
+  executor: Kubernetes
+  dags:
+    persistence:
+      enabled: false
+    git:
+      url: <replace your own>
+      branch: master
+      subpath: <replace your own>
+      username: <replace your own>
+      password: <replace your own>
+      wait: 60
